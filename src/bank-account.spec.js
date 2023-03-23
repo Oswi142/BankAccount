@@ -26,7 +26,6 @@ describe("Bank Account", () => {
     expect(account.balance).toEqual(50);
   });
 
-  xit("can withdraw money sequentially", () => {
   it("can withdraw money sequentially", () => {
     const account = new BankAccount();
     account.open();
@@ -35,12 +34,14 @@ describe("Bank Account", () => {
     account.withdraw(80);
     expect(account.balance).toEqual(0);
   });
+
   xit("checking balance of closed account throws error", () => {
     const account = new BankAccount();
     account.open();
     account.close();
     expect(() => account.balance).toThrow(ValueError);
   });
+
   xit("deposit into closed account throws error", () => {
     const account = new BankAccount();
     account.open();
@@ -108,5 +109,4 @@ describe("Bank Account", () => {
       account.balance = 100;
     }).toThrow(Error);
   });
-});
 });
