@@ -1,5 +1,4 @@
 import { BankAccount, ValueError } from "./bank-account";
-
 describe("Bank Account", () => {
   it("has zero balance when is a newly opened account", () => {
     const account = new BankAccount();
@@ -19,8 +18,6 @@ describe("Bank Account", () => {
     account.deposit(50);
     expect(account.balance).toEqual(150);
   });
-
-  xit("can withdraw money", () => {
   it("can withdraw money", () => {
     const account = new BankAccount();
     account.open();
@@ -28,7 +25,9 @@ describe("Bank Account", () => {
     account.withdraw(50);
     expect(account.balance).toEqual(50);
   });
+
   xit("can withdraw money sequentially", () => {
+  it("can withdraw money sequentially", () => {
     const account = new BankAccount();
     account.open();
     account.deposit(100);
@@ -109,4 +108,5 @@ describe("Bank Account", () => {
       account.balance = 100;
     }).toThrow(Error);
   });
+});
 });
