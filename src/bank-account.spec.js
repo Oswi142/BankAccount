@@ -50,7 +50,8 @@ describe("Bank Account", () => {
       account.deposit(50);
     }).toThrow(ValueError);
   });
-  xit("withdraw from closed account throws error", () => {
+
+  it("withdraw from closed account throws error", () => {
     const account = new BankAccount();
     account.open();
     account.close();
@@ -58,20 +59,23 @@ describe("Bank Account", () => {
       account.withdraw(50);
     }).toThrow(ValueError);
   });
-  xit("close already closed account throws error", () => {
+
+  it("close already closed account throws error", () => {
     const account = new BankAccount();
     expect(() => {
       account.close();
     }).toThrow(ValueError);
   });
-  xit("open already opened account throws error", () => {
+
+  it("open already opened account throws error", () => {
     const account = new BankAccount();
     account.open();
     expect(() => {
       account.open();
     }).toThrow(ValueError);
   });
-  xit("reopened account does not retain balance", () => {
+
+  it("reopened account does not retain balance", () => {
     const account = new BankAccount();
     account.open();
     account.deposit(50);
@@ -79,6 +83,7 @@ describe("Bank Account", () => {
     account.open();
     expect(account.balance).toEqual(0);
   });
+
   xit("cannot withdraw more than deposited", () => {
     const account = new BankAccount();
     account.open();
@@ -87,6 +92,7 @@ describe("Bank Account", () => {
       account.withdraw(50);
     }).toThrow(ValueError);
   });
+
   xit("cannot withdraw negative amount", () => {
     const account = new BankAccount();
     account.open();
@@ -95,6 +101,7 @@ describe("Bank Account", () => {
       account.withdraw(-50);
     }).toThrow(ValueError);
   });
+
   xit("cannot deposit negative amount", () => {
     const account = new BankAccount();
     account.open();
@@ -102,6 +109,7 @@ describe("Bank Account", () => {
       account.deposit(-50);
     }).toThrow(ValueError);
   });
+
   xit("changing balance directly throws error", () => {
     const account = new BankAccount();
     account.open();
